@@ -6,12 +6,24 @@
     <th>Purchase Date</th>
     <th>Purchase Price</th>
     <th>Yearly kWh Consumption</th>
+    <th></th>
   </tr>
   <tr *ngFor="let computer of computers">
     <td>{{computer.name}}</td>
     <td>{{computer.purchaseDate}}</td>
     <td>{{computer.purchasePrice}}</td>
     <td>{{computer.yearlyKWhConsumption}}</td>
+    <td></td>
   </tr>
+    <tr ngForm="computerForm">
+      <td><input type="text" placeholder="Name" [formControl]="computerForm.controls.name"></td>
+      <td><input type="date" placeholder="Purchase Date" [formControl]="computerForm.controls.purchaseDate"></td>
+      <td><input type="text" placeholder="Purchase Price €" [formControl]="computerForm.controls.purchasePrice"></td>
+      <td><input type="text" placeholder="Yearly Electric Consumption (kWh)" [formControl]="computerForm.controls.yearlyConsumption"></td>
+      <td>
+        <button (click)="createComputer()" [disabled]="computerForm.invalid">Create</button>
+      </td>
+    </tr>
+
 </table>
 
