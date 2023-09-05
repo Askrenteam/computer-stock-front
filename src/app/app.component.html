@@ -4,7 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Purchase Date</th>
-    <th>Purchase Price</th>
+    <th>Purchase Price €</th>
     <th>Yearly kWh Consumption</th>
     <th></th>
   </tr>
@@ -16,6 +16,7 @@
     <td></td>
   </tr>
     <tr ngForm="computerForm">
+      <!-- TODO: show validation status on the fields     -->
       <td><input type="text" placeholder="Name" [formControl]="computerForm.controls.name"></td>
       <td><input type="date" placeholder="Purchase Date" [formControl]="computerForm.controls.purchaseDate"></td>
       <td><input type="text" placeholder="Purchase Price €" [formControl]="computerForm.controls.purchasePrice"></td>
@@ -26,4 +27,36 @@
     </tr>
 
 </table>
+
+<h1>
+  Dashboard
+</h1>
+<h2>Monthly Spendings</h2>
+<table>
+  <tr>
+    <td *ngFor="let month of monthlySpendings">
+      {{month.startDate | date:'MMM y'}}
+    </td>
+  </tr>
+  <tr>
+    <td *ngFor="let month of monthlySpendings">
+      {{month.spendings}} €
+    </td>
+  </tr>
+</table>
+<h2>Monthly Consumption</h2>
+<table>
+  <tr>
+    <td *ngFor="let month of monthlyConsumption">
+      {{month.startDate | date:'MMM y'}}
+    </td>
+  </tr>
+  <tr>
+    <td *ngFor="let month of monthlyConsumption">
+      {{month.kwhConsumption}} kWh
+    </td>
+  </tr>
+</table>
+
+
 
